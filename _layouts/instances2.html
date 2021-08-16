@@ -13,7 +13,7 @@
 
         <table class="table is-fullwidth">
           <tbody>
-          {% assign instances_by_story = site.data.data.story_instance | sort "Canonical Story ID" | group_by:"Canonical Story ID" %}
+          {% assign instances_by_story = site.data.data.story_instance | sort: "Canonical Story ID" | group_by:"Canonical Story ID" %}
 
           {% for story in instances_by_story %}
             <tr>
