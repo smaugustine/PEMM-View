@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <title>PEMM - Instances</title>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">PEMM - Story Instances by Manuscript</h1>
+
+        <table class="table is-fullwidth">
+          <tbody>
+          {% assign instances_by_ms = site.data.data.story_instance | group_by:"Manuscript" %}
+
+          {% for Manuscript in instances_by_ms %}
+            <tr>
+              <td>
+                <h1 class="title is-5">{{ Manuscript.name }}</h1>
+                <table class="table is-striped is-narrow is-hoverable">
+                  <thead>
+                    <tr>
+                      <th>Folio Range</th>
+                      <th>Story</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for instance in Manuscript.items %}
+                    <tr>
+                      <td>F. {{ instance.['Folio Start'] }}-{{ instance.['Folio End'] }}</td>
+                      <td>
+                        (<a href="stories#{{ instance.['Canonical Story ID'] }}">{{ instance.['Canonical Story ID'] }}</a>) {{ instance.['Canonical Story Title'] }}
+                        <br/>
+                        {{ instance.['Incipit'] }}
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        
+      </div>
+    </section>
+
+    {% include footer.html %}
+  </body>
+</html>

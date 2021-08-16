@@ -9,32 +9,25 @@
   <body>
     <section class="section">
       <div class="container">
-        <h1 class="title">PEMM - Story Instances</h1>
+        <h1 class="title">PEMM - Story Instances by Story</h1>
 
         <table class="table is-fullwidth">
           <tbody>
-          {% assign instances_by_ms = site.data.data.story_instance | group_by:"Manuscript" %}
+          {% assign instances_by_story = site.data.data.story_instance | group_by:"Canonical Story ID" %}
 
-          {% for Manuscript in instances_by_ms %}
+          {% for story in instances_by_story %}
             <tr>
               <td>
-                <h1 class="title is-5">{{ Manuscript.name }}</h1>
+                <h1 class="title is-5">{{ story.name }}</h1>
                 <table class="table is-striped is-narrow is-hoverable">
                   <thead>
-                    <tr>
-                      <th>Folio Range</th>
-                      <th>Story</th>
-                    </tr>
+                   
                   </thead>
                   <tbody>
-                  {% for instance in Manuscript.items %}
+                  {% for instance in story.items %}
                     <tr>
+                      <td>{{ instance.['Manuscript'] }}</td>
                       <td>F. {{ instance.['Folio Start'] }}-{{ instance.['Folio End'] }}</td>
-                      <td>
-                        (<a href="stories#{{ instance.['Canonical Story ID'] }}">{{ instance.['Canonical Story ID'] }}</a>) {{ instance.['Canonical Story Title'] }}
-                        <br/>
-                        {{ instance.['Incipit'] }}
-                      </td>
                     </tr>
                   {% endfor %}
                   </tbody>
