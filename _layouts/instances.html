@@ -15,16 +15,22 @@
           <thead>
             <tr>
               <th>Manuscript</th>
-              <th>Story</th>
-              <th>Folio Range</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-          {% for instance in site.data.data.story_instance %}
+          {% instances_by_ms = site.data.data.story_instance | group_by:"Manuscript" %}
+
+          {% for Manuscript in instances_by_ms %}
             <tr>
-              <td>{{ instance.['Manuscript'] }}</td>
-              <td>{{ instance.['Canonical Story ID'] }}</td>
-              <td>{{ instance.['Folio Start'] }} - {{ instance.['Folio End'] }}</td>
+              <td>{{ Manuscript.name }}</td>
+              <td>
+                <ul>
+                {% for instance in Manuscript.items %}
+                  <li>{{ instance.['Canonical Story ID'] }} ({{ instance.['Folio Start'] }}-{{ instance.['Folio End'] }})</li>
+                {% endfor %}
+                </ul>
+              </td>
             </tr>
           {% endfor %}
           </tbody>
