@@ -19,7 +19,7 @@
             </tr>
           </thead>
           <tbody>
-          {% instances_by_ms = site.data.data.story_instance | group_by:"Manuscript" %}
+          {% assign instances_by_ms = site.data.data.story_instance | group_by:"Manuscript" %}
 
           {% for Manuscript in instances_by_ms %}
             <tr>
