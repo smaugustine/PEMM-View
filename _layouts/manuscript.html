@@ -7,12 +7,32 @@
     <title>PEMM - Manuscripts</title>
   </head>
   <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">PEMM - Manuscripts</h1>
 
-    <ul>
-    {% for manuscript in site.data.data.manuscript %}
-      <li>{{ manuscript.['Manuscript Name'] }}</li>
-    {% endfor %}
-    </ul>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Shelfmark</th>
+              <th>Date</th>
+              <th>BetMas</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for manuscript in site.data.data.manuscript %}
+            <tr>
+              <td>{{ manuscript.['Manuscript Name'] }}</td>
+              <td>{{ manuscript.['Century'] }} c. ({{ manuscript.['Date Range Start'] }} - {{ manuscript.['Date Range End'] }})</td>
+              <td><a href="http://betamasaheft.eu/{{ manuscript.['Hamburg MS ID'] }}">{{ manuscript.['Hamburg MS ID'] }}</a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
 
+      </div>
+    </section>
+
+    {% include footer.html %}
   </body>
 </html>
