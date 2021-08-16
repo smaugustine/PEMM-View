@@ -1,4 +1,4 @@
 ---
-layout: "manuscript"
+layout: "manuscripts"
 ---
 manuscript.csv

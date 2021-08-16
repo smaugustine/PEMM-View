@@ -4,27 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <title>PEMM - Stories</title>
+    <title>PEMM - Instances</title>
   </head>
   <body>
     <section class="section">
       <div class="container">
-        <h1 class="title">PEMM - Miracle Stories</h1>
+        <h1 class="title">PEMM - Story Instances</h1>
 
         <table class="table is-striped is-hoverable">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>CAe</th>
+              <th>Manuscript</th>
+              <th>Story</th>
+              <th>Folio Range</th>
             </tr>
           </thead>
           <tbody>
-          {% for story in site.data.data.canonical_story %}
+          {% for instance in site.data.data.story_instance %}
             <tr>
-              <td>{{ story.['Macomber ID'] }}</td>
-              <td>{{ story.['Macomber Title'] }}</td>
-              <td><a href="http://betamasaheft.eu/{{ story.['Hamburg ID'] }}">{{ story.['Clavis ID'] }}</a></td>
+              <td>{{ instance.['Manuscript'] }}</td>
+              <td>{{ instance.['Canonical Story ID'] }}</td>
+              <td>{{ instance.['Folio Start'] }} - {{ instance.['Folio End'] }}</td>
             </tr>
           {% endfor %}
           </tbody>
