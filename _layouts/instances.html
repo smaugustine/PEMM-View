@@ -29,9 +29,9 @@
                   <tbody>
                   {% for instance in Manuscript.items %}
                     <tr>
-                      <td rowspan="2">F. {{ instance.['Folio Start'] }}-{{ instance.['Folio End'] }}</td>
+                      <td>F. {{ instance.['Folio Start'] }}-{{ instance.['Folio End'] }}</td>
                       <td>
-                        ({{ instance.['Canonical Story ID'] }}) {{ instance.['Canonical Story Title'] }}
+                        (<a href="stories#{{ instance.['Canonical Story ID'] }}">{{ instance.['Canonical Story ID'] }}</a>) {{ instance.['Canonical Story Title'] }}
                         <br/>
                         {{ instance.['Incipit'] }}
                       </td>

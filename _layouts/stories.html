@@ -21,7 +21,7 @@
           </thead>
           <tbody>
           {% for story in site.data.data.canonical_story %}
-            <tr>
+            <tr id="{{ story.['Macomber ID'] }}">
               <td>{{ story.['Macomber ID'] }}</td>
               <td>{{ story.['Macomber Title'] }}</td>
               <td><a href="http://betamasaheft.eu/{{ story.['Hamburg ID'] }}">{{ story.['Clavis ID'] }}</a></td>
