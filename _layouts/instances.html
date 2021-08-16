@@ -11,7 +11,13 @@
       <div class="container">
         <h1 class="title">PEMM - Story Instances</h1>
 
-        <table class="table">
+        <table class="table is-fullwidth">
+          <thead>
+            <tr>
+              <th>Folio Range</th>
+              <th>Story</th>
+            </tr>
+          </thead>
           <tbody>
           {% assign instances_by_ms = site.data.data.story_instance | group_by:"Manuscript" %}
 
@@ -23,8 +29,11 @@
                   <tbody>
                   {% for instance in Manuscript.items %}
                     <tr>
-                      <td>{{ instance.['Folio Start'] }}-{{ instance.['Folio End'] }}</td>
-                      <td>{{ instance.['Canonical Story Title'] }}</td>
+                      <td rowspan="2">F. {{ instance.['Folio Start'] }}-{{ instance.['Folio End'] }}</td>
+                      <td>({{ instance.['Canonical Story ID'] }}) {{ instance.['Canonical Story Title'] }}</td>
+                    </tr>
+                    <tr>
+                      <td>{{ instance.['Incipit'] }}</td>
                     </tr>
                   {% endfor %}
                   </tbody>
