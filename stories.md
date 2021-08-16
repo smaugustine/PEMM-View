@@ -1,4 +1,4 @@
 ---
 layout: "stories"
 ---
-The index page.
+canonical_story.csv

@@ -1,4 +1,4 @@
 ---
-layout: "manuscript"
+layout: "index"
 ---
 The index page.

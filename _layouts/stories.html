@@ -3,14 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <title>PEMM - Stories</title>
   </head>
   <body>
 
-    <ul>
-    {% for story in site.data.data.canonical_story %}
-      <li>{{ story.['Macomber ID'] }}</li>
-    {% endfor %}
-    </ul>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>CAe</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for story in site.data.data.canonical_story %}
+        <tr>
+          <td>{{ story.['Macomber ID'] }}</td>
+          <td>{{ story.['Macomber Title'] }}</td>
+          <td><a href="http://betamasaheft.eu/{{ story.['Hamburg ID'] }}">{{ story.['Clavis ID'] }}</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
 
   </body>
 </html>
