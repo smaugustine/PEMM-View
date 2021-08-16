@@ -13,12 +13,12 @@
 
         <table class="table is-fullwidth">
           <tbody>
-          {% assign instances_by_story = site.data.data.story_instance | group_by:"Canonical Story ID" %}
+          {% assign instances_by_story = site.data.data.story_instance | sort "Canonical Story ID" | group_by:"Canonical Story ID" %}
 
           {% for story in instances_by_story %}
             <tr>
               <td>
-                <h1 class="title is-5">{{ story.name }}</h1>
+                <h1 class="title is-5">{{ story.name }}. {{ story.items.[1].['Canonical Story Title'] }}</h1>
                 <table class="table is-striped is-narrow is-hoverable">
                   <thead>
                    
