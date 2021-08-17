@@ -12,7 +12,7 @@
         <h1 class="title">PEMM - Story Instances by Story</h1>
 
         {% for story in site.data.data.story_instance %}
-          {% assign sortId = story.['Canonical Story ID'] | prepend: '0000' | slice: -4, 4 %}
+          {% assign story.sortId = story.['Canonical Story ID'] | prepend: '0000' | slice: -4, 4 %}
         {% endfor %}
 
         <table class="table is-fullwidth">
