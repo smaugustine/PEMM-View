@@ -11,9 +11,13 @@
       <div class="container">
         <h1 class="title">PEMM - Story Instances by Story</h1>
 
+        {% for story in site.data.data.story_instance %}
+          {% assign sortId = story.['Canonical Story ID'] | prepend: '0000' | slice: -4, 4 %}
+        {% endfor %}
+
         <table class="table is-fullwidth">
           <tbody>
-          {% assign instances_by_story = site.data.data.story_instance | sort: "Canonical Story ID" | group_by:"Canonical Story ID" %}
+          {% assign instances_by_story = site.data.data.story_instance | sort: "sortId" | group_by:"Canonical Story ID" %}
 
           {% for story in instances_by_story %}
             <tr>
@@ -24,7 +28,7 @@
                    
                   </thead>
                   <tbody>
-                  {% for instance in story.items %}
+                  {% for instance in story.items | sort: "Manuscript" %}
                     <tr>
                       <td>{{ instance.['Manuscript'] }}</td>
                       <td>F. {{ instance.['Folio Start'] }}-{{ instance.['Folio End'] }}</td>
