@@ -20,6 +20,7 @@
           {% assign instances_by_story = site.data.data.story_instance | sort: "sortId" | group_by:"Canonical Story ID" %}
 
           {% for story in instances_by_story %}
+            {% unless story.name == "" %}
             <tr>
               <td>
                 <h1 class="title is-5">{{ story.name }}. {{ story.items.[1].['Canonical Story Title'] }}</h1>
@@ -39,6 +40,7 @@
 
               </td>
             </tr>
+            {% endunless %}
           {% endfor %}
           </tbody>
         </table>
