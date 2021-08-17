@@ -1,0 +1,15 @@
+name: Update PEMM Data
+
+on:
+  schedule:
+    - cron:  '30 5,17 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Checkout submodules
+      run: git submodule update --init --recursive
