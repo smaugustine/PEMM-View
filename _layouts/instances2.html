@@ -21,7 +21,7 @@
 
           {% for story in instances_by_story %}
             {% unless story.name == "" %}
-            <tr>
+            <tr data-story="{{ story.name }}">
               <td>
                 <h1 class="title is-5">{{ story.name }}. {{ story.items.[1].['Canonical Story Title'] }}</h1>
                 <table class="table is-striped is-narrow is-hoverable">
